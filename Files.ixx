@@ -1,18 +1,18 @@
-// ƒtƒ@ƒCƒ‹ˆ—‚ÌUtlis
+ï»¿// ãƒ•ã‚¡ã‚¤ãƒ«å‡¦ç†ã®Utlis
 export module Files;
 
 import std;
 
-// C++17‚©‚ç‚Í•¶š—ñ‚Ìˆø”‚ÍŠî–{string_view
-// Ql https://yohhoy.hatenadiary.jp/entry/20171113/p1
+// C++17ã‹ã‚‰ã¯æ–‡å­—åˆ—ã®å¼•æ•°ã¯åŸºæœ¬string_view
+// å‚è€ƒ https://yohhoy.hatenadiary.jp/entry/20171113/p1
 
 namespace Files {
     /// <summary>
-    /// C++‚ÍƒfƒtƒHƒ‹ƒg‚Å‚Í—áŠO‚ª‚Å‚È‚¢‚½‚ßİ’è
+    /// C++ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ä¾‹å¤–ãŒã§ãªã„ãŸã‚è¨­å®š
     /// </summary>
     /// <param name="file"></param>
     export void initForException(std::ifstream& file) {
-        //ƒGƒ‰[‚Ì‚Æ‚«‚Í—áŠO‚ğthrow‚·‚é‚æ‚¤‚Éİ’è
+        //ã‚¨ãƒ©ãƒ¼ã®ã¨ãã¯ä¾‹å¤–ã‚’throwã™ã‚‹ã‚ˆã†ã«è¨­å®š
         // https://dormolin.livedoor.blog/archives/50353376.html
         file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     }
@@ -20,17 +20,17 @@ namespace Files {
     // 
     
     /// <summary>
-    /// ƒtƒ@ƒCƒ‹‚Ì‘S‚Ä‚Ìs‚ğ“Ç‚İ‚Ş
+    /// ãƒ•ã‚¡ã‚¤ãƒ«ã®å…¨ã¦ã®è¡Œã‚’èª­ã¿è¾¼ã‚€
     /// </summary>
-    /// <param name="filename">ƒtƒ@ƒCƒ‹ƒpƒX</param>
-    /// <returns>‘S‚Ä‚Ìs</returns>
+    /// <param name="filename">ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹</param>
+    /// <returns>å…¨ã¦ã®è¡Œ</returns>
     export std::vector<std::string> readAllLines(std::string_view filename) {
         std::vector<std::string> lines;
         std::ifstream file(filename.data());
         initForException(file);
 
         while (!file.eof()) {
-            // vector‚Ì––”ö‚Éstring‚ğ’¼Ú\’z
+            // vectorã®æœ«å°¾ã«stringã‚’ç›´æ¥æ§‹ç¯‰
             // https://zenn.dev/mafafa/articles/370875167e4a3a
             lines.emplace_back();
             std::getline(file, lines.back());
