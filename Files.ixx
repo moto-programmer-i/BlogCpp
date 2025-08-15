@@ -17,7 +17,7 @@ namespace Files {
         file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     }
 
-    // 
+
     
     /// <summary>
     /// ファイルの全ての行を読み込む
