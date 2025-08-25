@@ -32,8 +32,7 @@ namespace Files {
         while (!file.eof()) {
             // vectorの末尾にstringを直接構築
             // https://zenn.dev/mafafa/articles/370875167e4a3a
-            lines.emplace_back();
-            std::getline(file, lines.back());
+            std::getline(file, lines.emplace_back());
         }
 
         return lines;
